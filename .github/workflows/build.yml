@@ -36,9 +36,11 @@ jobs:
       - name: Create Windows installer (NSIS)
         run: |
           choco install nsis -y
-          Copy-Item installer/windows.nsi dist/PlotBook/installer.nsi
-          cd dist/PlotBook
+          $env:PATH += ";C:\Program Files (x86)\NSIS"
+          Copy-Item installer\windows.nsi dist\PlotBook\installer.nsi
+          Push-Location dist\PlotBook
           makensis installer.nsi
+          Pop-Location
         shell: pwsh
 
       - name: Upload installer
