@@ -30,7 +30,6 @@ jobs:
             --add-data "resources;resources" ^
             --hidden-import plotbook.rendering.series_renderers ^
             --hidden-import plotbook.models.table_formats ^
-            --icon NUL ^
             src/plotbook/__main__.py
         shell: cmd
 
